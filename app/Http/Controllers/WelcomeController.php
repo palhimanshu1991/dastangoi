@@ -48,6 +48,17 @@ class WelcomeController extends Controller {
 
 	}
 
+	public function about(){		
+		return view('about');
+	}
+
+	public function contact(){		
+		return view('contact');
+	}
+
+	public function postContact(){		
+		return 'post contact';
+	}
 
 		/*
 		$response = $client->get('http://www.omdbapi.com/', ['query' => 

@@ -4,14 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Event;
-use Carbon;
-
-class EventController extends Controller
+class StoryController extends Controller
 {
+
+    /**
+     * Post Repository
+     *
+     * @var Post
+     */
+    protected $story;
+ 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,13 +37,8 @@ class EventController extends Controller
     public function getIndex()
     {
         //
-
-        $events = Event::all();
-
-        $upcoming = Event::where('event_date','>',Carbon::now())->get();
-        $past = Event::where('event_date','<',Carbon::now())->get();
-
-        return view('event.index',compact('upcoming','past'));
+        $stories = DB::table('stories')->get();
+        return view('story.index',compact('stories'));
     }
 
     /**
@@ -37,32 +49,30 @@ class EventController extends Controller
     public function getCreate()
     {
         //
-        return view('admin.event_create');
+        return view('story.create');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Store a newly created resource in storage.
      *
+     * @param  Request  $request
      * @return Response
      */
     public function postCreate(Request $request)
-    {
-        //        
+    {            
 
-        $date = Carbon::parse($request->input('event_date'))->toDateTimeString();
+        $table = DB::table('stories')->insert([
+            'story_title' => $request->input('title'),
+            'story_body'  => $request->input('body')
+        ]);
 
-        $event = new Event;
+        if($table){
+            return 'true';
+        } else {
+            return 'false';
+        }
 
-        $event->event_name = $request->input('event_name');
-        $event->event_date = $date;
-        $event->event_place = $request->input('event_place');
-        $event->event_description = $request->input('event_description');
-
-        $event->save();
-
-        return redirect('/admin/event');
     }
-
 
     /**
      * Display the specified resource.
@@ -104,12 +114,8 @@ class EventController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function getDelete($id)
+    public function destroy($id)
     {
         //
-        Event::destroy($id);
-
-        return redirect()->back();
-
     }
 }

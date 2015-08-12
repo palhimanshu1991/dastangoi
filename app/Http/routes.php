@@ -18,6 +18,8 @@ Route::controllers([
 
 
 Route::get('/', 'WelcomeController@index');
+Route::get('about', 'WelcomeController@about');
+Route::get('contact', 'WelcomeController@contact');
 
 //Route::controller('user', 'UserController');
 Route::controller('users', 'UserController');
@@ -27,3 +29,4 @@ Route::controller('blog', 'BlogController');
 Route::controller('gallery', 'GalleryController');
 Route::controller('event', 'EventController');
 Route::controller('press', 'PressController');
+Route::controller('story', 'StoryController');

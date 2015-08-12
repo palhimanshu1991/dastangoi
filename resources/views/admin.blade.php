@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Squad - Home</title>
+    <title>Admin - Home</title>
 
     <!-- Metadata -->
     <meta name="title" content="Squad">
@@ -16,14 +16,13 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="{{Config::get('app.url')}}css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{Config::get('app.url')}}css/medium-editor.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
     <link href="{{Config::get('app.url')}}font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="{{Config::get('app.url')}}css/animate.css" rel="stylesheet" />
 
     <!-- Squad theme CSS -->
-    <link href="{{Config::get('app.url')}}css/style.css" rel="stylesheet">
-    <link href="{{Config::get('app.url')}}color/default.css" rel="stylesheet">
 
     <!--[if lte IE 9]>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.js"></script>
@@ -55,13 +54,12 @@
  -->                <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{Config::get('app.url')}}">Home</a></li>
-                <li><a href="{{Config::get('app.url')}}event">Events</a></li>
-                <li><a href="{{Config::get('app.url')}}users">Profiles</a></li>
-                <li><a href="{{Config::get('app.url')}}about">About</a></li>
+                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#profiles">Profiles</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->
-                <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>
-                <li><a href="{{Config::get('app.url')}}blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Blog</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Press <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -106,18 +104,101 @@
     <script src="{{Config::get('app.url')}}js/custom.js"></script>
 
     <!-- OctoberCMS Ajax Framework and extras -->
-    <script src="/laracms/modules/system/assets/js/framework.js"></script>
-    <script src="/laracms/modules/system/assets/js/framework.extras.js"></script>
-    <link href="/laracms/modules/system/assets/css/framework.extras.css" rel="stylesheet">
-
-    <!-- Extra -->
     @yield('extra')
 
+    <!-- Extra -->
     
     <!-- Inline scripts -->
-    <script></script>
+    <script>
+// initializing editors
+var titleEditor = new MediumEditor('.title-editable', {
+    buttonLabels: 'fontawesome'
+});
+var bodyEditor = new MediumEditor('.body-editable', {
+    buttonLabels: 'fontawesome'
+});
+$(function () {
+    // initializing insert image on body editor
+    $('.body-editable').mediumInsert({
+        editor: bodyEditor,
+        images: true,
+        imagesUploadScript: "{{ URL::to('upload') }}"
+    });
+    // deactivate editors on show view
+    if ($('#hideEditor').length) {
+        $('.body-editable').mediumInsert('disable');
+        bodyEditor.deactivate();
+        titleEditor.deactivate();
+    }
+});
+// hiding messages
+$('.error').hide().empty();
+$('.success').hide().empty();
+ 
+// create post
+$('body').on('click', '#form-submit', function(e){
+    e.preventDefault();
+    var postTitle = titleEditor.serialize();
+    var postContent = bodyEditor.serialize();
 
-
-
+    console.log(postTitle);
+    console.log(postContent);
+ 
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url : "{{ URL::action('StoryController@postCreate') }}",
+        data: { title: postTitle['title']['value'], body: postContent['body']['value'] },
+        success: function(data) {
+            if(data.success === false)
+            {
+                $('.error').append(data.message);
+                $('.error').show();
+            } else {
+                $('.success').append(data.message);
+                $('.success').show();
+                setTimeout(function() {
+                    window.location.href = "{{ URL::action('StoryController@getIndex') }}";
+                }, 2000);
+            }
+        },
+        error: function(xhr, textStatus, thrownError) {
+            alert('Something went wrong. Please Try again later...');
+        }
+    });
+    return false;
+});
+ 
+// update post
+$('body').on('click', '#form-update', function(e){
+    e.preventDefault();
+    var postTitle = titleEditor.serialize();
+    var postContent = bodyEditor.serialize();
+ 
+    $.ajax({
+        type: 'PUT',
+        dataType: 'json',
+        url : "{{ URL::action('StoryController@postCreate', array(Request::segment(2))) }}",
+        data: { title: postTitle['post-title']['value'], body: postContent['post-body']['value'] },
+        success: function(data) {
+            if(data.success === false)
+            {
+                $('.error').append(data.message);
+                $('.error').show();
+            } else {
+                $('.success').append(data.message);
+                $('.success').show();
+                setTimeout(function() {
+                    window.location.href = "{{ URL::action('StoryController@getIndex') }}";
+                }, 2000);
+            }
+        },
+        error: function(xhr, textStatus, thrownError) {
+            alert('Something went wrong. Please Try again later...');
+        }
+    });
+    return false;
+});
+    </script>
 </body>
 </html>

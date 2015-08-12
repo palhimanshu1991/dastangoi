@@ -155,7 +155,7 @@
 
 
 <!-- Section: contact -->
-<section id="contact" class="home-section text-center">
+<!-- <section id="contact" class="home-section text-center">
     <div class="heading-contact">
         <div class="container">
         <div class="row">
@@ -222,7 +222,7 @@
         </div>
     </div>
 
-<!--     <div class="col-lg-4">
+    <div class="col-lg-4">
         <div class="widget-contact">
             <h5>Main Office</h5>
 
@@ -248,10 +248,9 @@
             </address>
 
         </div>
-    </div> -->
+    </div>
 </div>
-
     </div>
 </section>
-
+ -->
 @endsection
