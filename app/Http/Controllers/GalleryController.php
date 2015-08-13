@@ -8,6 +8,7 @@ use DB;
 use Storage;
 use Config;
 use Carbon;
+use File;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -111,8 +112,8 @@ class GalleryController extends Controller
         //
         $gallery = DB::table('gallery')->where('gallery_id',$id)->first();
         if($gallery){
-            Storage::delete($gallery->gallery_url);
             DB::table('gallery')->where('gallery_id',$id)->delete();
+            File::delete(Config::get('app.storage').'/'.$gallery->gallery_url);
             return redirect()->back();
         } else {
             return 'Some error occured';
