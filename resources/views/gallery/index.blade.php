@@ -26,7 +26,7 @@
             @foreach($photos as $photo)
             <div class="col-sm-3 col-md-3">
                 <a href="{{Config::get('app.url')}}gallery/show/{{$photo->gallery_id}}">
-                    <img src="../storage/app/{{$photo->gallery_url}}" alt="..." class="img-thumbnail">
+                    <img src="{{Config::get('app.storage')}}{{$photo->gallery_url}}" alt="..." class="img-thumbnail">
                 </a>
             </div>
             @endforeach

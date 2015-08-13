@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 use Storage;
+use Config;
 use Carbon;
 
 use App\Http\Requests;
@@ -48,13 +49,9 @@ class GalleryController extends Controller
         //
 
         $filename = $request->file('photo')->getClientOriginalName().'_'.time();
+        $destination = public_path().'/uploads/';
 
-
-        Storage::put(
-            $filename,
-            file_get_contents($request->file('photo')->getRealPath())
-        );
-
+        $request->file('photo')->move($destination,$filename);
 
         DB::table('gallery')->insert([
             'gallery_description'  =>  $request->description,
