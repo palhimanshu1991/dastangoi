@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+use Storage;
+use Carbon;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,9 +18,12 @@ class GalleryController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
         //
+        $photos = DB::table('gallery')->get();
+
+        return view('gallery.index',compact('photos'));
     }
 
     /**
@@ -24,9 +31,10 @@ class GalleryController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function getCreate()
     {
         //
+        return view('gallery.create');
     }
 
     /**
@@ -35,9 +43,28 @@ class GalleryController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function postCreate(Request $request)
     {
         //
+
+        $filename = $request->file('photo')->getClientOriginalName().'_'.time();
+
+
+        Storage::put(
+            $filename,
+            file_get_contents($request->file('photo')->getRealPath())
+        );
+
+
+        DB::table('gallery')->insert([
+            'gallery_description'  =>  $request->description,
+            'gallery_url'   =>  $filename,
+            'created_at'    => Carbon::now(),
+            'updated_at'    => Carbon::now()
+        ]);
+
+        return redirect('/admin/gallery');
+
     }
 
     /**
@@ -46,9 +73,11 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function getShow($id)
     {
         //
+        $photo = DB::table('gallery')->where('gallery_id',$id)->first();
+        return view('gallery.show',compact('photo'));
     }
 
     /**
@@ -80,8 +109,16 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function getDelete($id)
     {
         //
+        $gallery = DB::table('gallery')->where('gallery_id',$id)->first();
+        if($gallery){
+            Storage::delete($gallery->gallery_url);
+            DB::table('gallery')->where('gallery_id',$id)->delete();
+            return redirect()->back();
+        } else {
+            return 'Some error occured';
+        }
     }
 }

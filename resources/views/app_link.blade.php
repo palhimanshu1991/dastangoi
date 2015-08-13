@@ -57,6 +57,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{Config::get('app.url')}}">Home</a></li>
                 <li><a href="{{Config::get('app.url')}}event">Events</a></li>
+                <li><a href="{{Config::get('app.url')}}gallery">Gallery</a></li>
                 <li><a href="{{Config::get('app.url')}}users">Profiles</a></li>
                 <li><a href="{{Config::get('app.url')}}about">About</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->

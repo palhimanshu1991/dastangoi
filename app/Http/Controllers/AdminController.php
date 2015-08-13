@@ -105,8 +105,8 @@ class AdminController extends Controller
     }
 
     public function getGallery(){
-        $gallery = Gallery::all();
-        return view('admin.gallery',compact('gallery'));
+        $photos = DB::table('gallery')->get();
+        return view('admin.gallery',compact('photos'));
     }
 
     public function getPress(){

@@ -28,6 +28,8 @@ return [
 
     'url' => env('SITE_URL'),
 
+    'storage' => env('SITE_STORAGE'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

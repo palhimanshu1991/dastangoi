@@ -34,7 +34,7 @@ class UserController extends Controller
     public function getCreate()
     {
         //
-        return view('admin.user_create');
+        return view('users.create');
     }
 
     /**
@@ -50,6 +50,11 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->bio = $request->input('bio');
+
+        $user->facebook = $request->input('facebook');
+        $user->google = $request->input('google');
+        $user->twitter = $request->input('twitter');
+        $user->website = $request->input('website');
         // $user->image = $request->input('image');
 
         $user->save();

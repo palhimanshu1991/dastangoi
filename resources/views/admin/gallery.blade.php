@@ -1,41 +1,44 @@
-@extends('app')
+@extends('admin')
 @section('content')
+
+<br/><br/><br/><br/><br/>
+
 <div class="container">
    <div class="row">
-      <div class="col-md-12">
-        
-      <h4>List of all events</h4>
+      <div class="col-md-12">        
 
-      	<a class="btn btn-default" href="{{Config::get('app.url')}}/event/create">Create Event</a>
-      	<br/>
+      	<a class="btn btn-default" href="{{Config::get('app.url')}}gallery/create">Add New Photo</a>
+      	<br/><br/>
 
 <div class="bs-example" >
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">List of all events</div>
-      <div class="panel-body">
-        <!-- <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> -->
-      </div>
+      <div class="panel-heading">List of all profiles</div>
 
       <!-- Table -->
       <table class="table">
         <thead>
           <tr>
             <th>#</th>
-            <th>Name</th>
-            <th>Place</th>
-            <th>Date</th>
+            <th>Photo</th>
+            <th>Description</th>
+            <th>Email</th>
+            <th>Created On</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-        @foreach($events as $event)
+        @foreach($photos as $photo)
           <tr>
-            <th scope="row">{{$event->event_id}}</th>
-            <td>{{$event->event_name}}</td>
-            <td>{{$event->event_place}}</td>
-            <td>{{$event->event_date}}</td>
-            <td><a href="{{Config::get('app.url')}}event/delete/{{$event->event_id}}">Delete</a></td>
+            <th scope="row">{{$photo->gallery_id}}</th>
+            <th scope="row">                
+                <a href="{{Config::get('app.url')}}gallery/show/{{$photo->gallery_id}}">
+                    <img width="50px" src="{{Config::get('app.storage')}}{{$photo->gallery_url}}" alt="..." class="img-thumbnail">
+                </a>
+            </th>    
+            <th scope="row">{{$photo->gallery_description}}</th>    
+            <th scope="row">{{$photo->created_at}}</th>
+            <td><a href="{{Config::get('app.url')}}gallery/delete/{{$photo->gallery_id}}">Delete</a></td>
           </tr>
         @endforeach
         </tbody>

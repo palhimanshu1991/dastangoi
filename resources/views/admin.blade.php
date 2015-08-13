@@ -54,12 +54,14 @@
  -->                <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#profiles">Profiles</a></li>
+                <li><a href="{{Config::get('app.url')}}">Home</a></li>
+                <li><a href="{{Config::get('app.url')}}event">Events</a></li>
+                <li><a href="{{Config::get('app.url')}}gallery">Gallery</a></li>
+                <li><a href="{{Config::get('app.url')}}users">Profiles</a></li>
+                <li><a href="{{Config::get('app.url')}}about">About</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact">Blog</a></li>
+                <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>
+                <li><a href="{{Config::get('app.url')}}blog">Blog</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Press <b class="caret"></b></a>
                     <ul class="dropdown-menu">
