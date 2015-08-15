@@ -20,6 +20,7 @@
             <th>Name</th>
             <th>Place</th>
             <th>Date</th>
+            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -30,6 +31,7 @@
             <td>{{$event->event_name}}</td>
             <td>{{$event->event_place}}</td>
             <td>{{$event->event_date}}</td>
+            <td><a href="{{Config::get('app.url')}}event/edit/{{$event->event_id}}">Edit</a></td>
             <td><a href="{{Config::get('app.url')}}event/delete/{{$event->event_id}}">Delete</a></td>
           </tr>
         @endforeach

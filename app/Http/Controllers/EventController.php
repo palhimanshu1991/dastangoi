@@ -81,9 +81,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
         //
+        $event = Event::find($id);
+        return view('event.edit',compact('event'));
     }
 
     /**
@@ -93,9 +95,22 @@ class EventController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function postEdit(Request $request, $id)
     {
         //
+//        $date = Carbon::parse($request->input('event_date'))->toDateTimeString();
+
+        $event = Event::find($id);
+
+        $event->event_name = $request->input('event_name');
+        $event->event_date = $request->input('event_date');
+        $event->event_place = $request->input('event_place');
+        $event->event_description = $request->input('event_description');
+
+        $event->save();
+
+        return redirect('/admin/event');     
+        
     }
 
     /**
