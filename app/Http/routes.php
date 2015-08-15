@@ -21,8 +21,9 @@ Route::get('/', 'WelcomeController@index');
 Route::get('about', 'WelcomeController@about');
 Route::get('contact', 'WelcomeController@contact');
 
-//Route::controller('user', 'UserController');
+Route::controller('user', 'UserController');
 Route::controller('users', 'UserController');
+Route::controller('authors', 'AuthorController');
 
 Route::controller('admin', 'AdminController');
 Route::controller('blog', 'BlogController');

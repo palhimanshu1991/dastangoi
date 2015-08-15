@@ -57,7 +57,7 @@
                 <li><a href="{{Config::get('app.url')}}">Home</a></li>
                 <li><a href="{{Config::get('app.url')}}event">Events</a></li>
                 <li><a href="{{Config::get('app.url')}}gallery">Gallery</a></li>
-                <li><a href="{{Config::get('app.url')}}users">Profiles</a></li>
+                <li><a href="{{Config::get('app.url')}}authors">Profiles</a></li>
                 <li><a href="{{Config::get('app.url')}}about">About</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->
                 <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>

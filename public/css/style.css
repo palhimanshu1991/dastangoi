@@ -821,3 +821,19 @@ Parallax
     border-radius: 8px;
     margin-bottom: 30px;
 }
+.btn.btn-main {
+    background-color: #E8A944;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+}
+.nav.navbar-nav.transparent {
+    background-color: transparent;
+}
+.transparent ul.nav li a {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-weight: 700;
+}

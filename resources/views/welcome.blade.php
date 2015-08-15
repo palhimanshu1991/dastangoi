@@ -90,9 +90,7 @@
          </div>   
          <br/>
         <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-            <h3><a href="{{Config::get('app.url')}}event">See All Events</a></h3>
-            </div>
+            <a class="btn btn-main" href="{{Config::get('app.url')}}event">See All Events</a>
         </div>    
     </div>
 </section>
@@ -140,13 +138,9 @@
                 </div>
             </div>        
             @endforeach
+            <br/>
+            <a class="btn btn-main" href="{{Config::get('app.url')}}users">See All Dastangoers</a></h3>
         </div>
-        <br/>
-        <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-            <h3><a href="{{Config::get('app.url')}}users">See All Dastangoers</a></h3>
-            </div>
-        </div>     
     </div>
 </section>
 <!-- /Section: services -->

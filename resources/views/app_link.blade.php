@@ -4,12 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Squad - Home</title>
+    <title>Dastangoi - Home</title>
 
     <!-- Metadata -->
-    <meta name="title" content="Squad">
+    <meta name="title" content="Dastangoi">
     <meta name="keywords" content="">
-    <meta name="description" content="Squad Bootstrap Template">
+    <meta name="description" content="Dastangoi Bootstrap Template">
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
     <link href="{{Config::get('app.url')}}font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="{{Config::get('app.url')}}css/animate.css" rel="stylesheet" />
 
-    <!-- Squad theme CSS -->
+    <!-- Dastangoi theme CSS -->
     <link href="{{Config::get('app.url')}}css/style.css" rel="stylesheet">
     <link href="{{Config::get('app.url')}}color/default.css" rel="stylesheet">
 
@@ -58,7 +58,7 @@
                 <li><a href="{{Config::get('app.url')}}">Home</a></li>
                 <li><a href="{{Config::get('app.url')}}event">Events</a></li>
                 <li><a href="{{Config::get('app.url')}}gallery">Gallery</a></li>
-                <li><a href="{{Config::get('app.url')}}users">Profiles</a></li>
+                <li><a href="{{Config::get('app.url')}}authors">Profiles</a></li>
                 <li><a href="{{Config::get('app.url')}}about">About</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->
                 <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>

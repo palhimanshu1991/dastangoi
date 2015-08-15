@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\User;
 use App\Gallery;
+use App\Author;
 
 use DB;
 
@@ -103,6 +104,11 @@ class AdminController extends Controller
         $users = User::all();
         return view('admin.users',compact('users'));
     }
+
+    public function getAuthors(){
+        $authors = Author::all();
+        return view('admin.authors',compact('authors'));
+    }    
 
     public function getGallery(){
         $photos = DB::table('gallery')->get();
