@@ -37,7 +37,7 @@ class EventController extends Controller
     public function getCreate()
     {
         //
-        return view('admin.event_create');
+        return view('event.create');
     }
 
     /**

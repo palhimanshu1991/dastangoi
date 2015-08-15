@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use DB;
+use Carbon;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -31,7 +32,7 @@ class PressController extends Controller
     public function getCreate()
     {
         //
-        return view('admin.press_create');
+        return view('press.create');
     }
 
 
@@ -43,12 +44,14 @@ class PressController extends Controller
     public function postCreate(Request $request)
     {
         //
+        $date = Carbon::parse($request->input('date'))->toDateTimeString();
+        
             $query = DB::table('press')->insert([
                 [
                     'press_title' => $request->input('title'), 
                     'press_link' => $request->input('link'),
                     'press_description' => $request->input('description'),
-                    'press_date' => $request->input('date')
+                    'press_date' => $date
                 ]
             ]);      
 

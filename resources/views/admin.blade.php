@@ -55,20 +55,20 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{Config::get('app.url')}}">Home</a></li>
-                <li><a href="{{Config::get('app.url')}}event">Events</a></li>
-                <li><a href="{{Config::get('app.url')}}gallery">Gallery</a></li>
-                <li><a href="{{Config::get('app.url')}}authors">Profiles</a></li>
-                <li><a href="{{Config::get('app.url')}}about">About</a></li>
+                <li><a href="{{Config::get('app.url')}}admin/event">Events</a></li>
+                <li><a href="{{Config::get('app.url')}}admin/gallery">Gallery</a></li>
+                <li><a href="{{Config::get('app.url')}}admin/authors">Profiles</a></li>
+                <li><a href="{{Config::get('app.url')}}admin/press">Press</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->
                 <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>
                 <li><a href="http://dastangoi.blogspot.in/">Blog</a></li>
-                <li class="dropdown">
+<!--                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Press <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{Config::get('app.url')}}press">Past Coverage</a></li>
                         <li><a href="{{Config::get('app.url')}}press/kit">PR Kit</a></li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
         </div>
         <!-- /.navbar-collapse -->
