@@ -74,7 +74,7 @@
     <div class="container">
         <div class="row">
             @foreach($events as $event)
-            <div class="col-xs-6 col-sm-3 col-md-3">
+            <div class="col-xs-12 col-sm-3 col-md-3">
                 <div class="" data-wow-delay="0.2s">
                 <div class=" boxed-grey">
                     <div class="inner"><br/>
@@ -121,7 +121,7 @@
     <div class="container">
         <div class="row">
             @foreach($users as $user)
-            <div class="col-xs-6 col-sm-3 col-md-3">
+            <div class="col-xs-12 col-sm-3 col-md-3">
                 <div class="wow bounceInUp" data-wow-delay="0.2s">
                 <div class="team boxed-grey">
                     <div class="inner">

@@ -44,15 +44,15 @@
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
     <div class="container">
-<!--         <div class="navbar-header page-scroll">
+         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="http://localhost/laracms">
+<!--            <a class="navbar-brand" href="http://localhost/laracms">
                 <h1 class="upper">Dastangoi</h1>
-            </a>
+            </a>-->
         </div>
- -->                <!-- Collect the nav links, forms, and other content for toggling -->
+                  <!--Collect the nav links, forms, and other content for toggling--> 
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{Config::get('app.url')}}">Home</a></li>
