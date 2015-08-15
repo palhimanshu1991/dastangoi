@@ -138,8 +138,8 @@
                 </div>
             </div>        
             @endforeach
-            <br/>
-            <a class="btn btn-main" href="{{Config::get('app.url')}}users">See All Dastangoers</a></h3>
+            <br/><br/>
+            <a class="btn btn-main" href="{{Config::get('app.url')}}authors">See All Dastangoers</a></h3>
         </div>
     </div>
 </section>

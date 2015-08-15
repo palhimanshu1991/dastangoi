@@ -21,8 +21,8 @@ Route::get('/', 'WelcomeController@index');
 Route::get('about', 'WelcomeController@about');
 Route::get('contact', 'WelcomeController@contact');
 
-Route::controller('user', 'UserController');
-Route::controller('users', 'UserController');
+Route::controller('user', 'AuthorController');
+Route::controller('users', 'AuthorController');
 Route::controller('authors', 'AuthorController');
 
 Route::controller('admin', 'AdminController');
