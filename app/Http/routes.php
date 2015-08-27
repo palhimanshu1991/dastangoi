@@ -26,8 +26,8 @@ Route::controller('users', 'AuthorController');
 Route::controller('authors', 'AuthorController');
 
 Route::controller('admin', 'AdminController');
-Route::controller('blog', 'BlogController');
+// Route::controller('blog', 'BlogController');
 Route::controller('gallery', 'GalleryController');
 Route::controller('event', 'EventController');
 Route::controller('press', 'PressController');
-Route::controller('story', 'StoryController');
+Route::controller('blog', 'StoryController');

@@ -9,6 +9,7 @@ use Doctrine\Common\Cache\Cache as Doctrine;
 use DB;
 use App\Event as Event;
 use App\User;
+use App\Author;
 
 class WelcomeController extends Controller {
 
@@ -42,10 +43,10 @@ class WelcomeController extends Controller {
 	{
 
 		$events = Event::take('4')->get();
-		$users = User::take('4')->get();
-                $coverage = DB::table('press')->take('4')->orderBy('press_date','desc')->get();
+		$authors = Author::take('4')->get();
+        $coverage = DB::table('press')->take('4')->orderBy('press_date','desc')->get();
 
-		return view('welcome',compact('events','users','coverage'));
+		return view('welcome',compact('events','authors','coverage'));
 
 	}
 

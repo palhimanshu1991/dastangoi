@@ -59,9 +59,10 @@
                 <li><a href="{{Config::get('app.url')}}admin/gallery">Gallery</a></li>
                 <li><a href="{{Config::get('app.url')}}admin/authors">Profiles</a></li>
                 <li><a href="{{Config::get('app.url')}}admin/press">Press</a></li>
+                <li><a href="{{Config::get('app.url')}}admin/blog">Blog</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->
                 <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>
-                <li><a href="http://dastangoi.blogspot.in/">Blog</a></li>
+                
 <!--                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Press <b class="caret"></b></a>
                     <ul class="dropdown-menu">

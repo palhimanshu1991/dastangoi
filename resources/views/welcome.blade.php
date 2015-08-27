@@ -6,7 +6,7 @@
 
     <div class="slogan">
         <h2>Dastangoi <span class="text_color"></span> </h2>
-        <h3>Untold Stories Of Mughal Era</h3>    
+        <h3>The Art of Urdu Storytelling</h3>    
         </div>
 <!--     <div class="page-scroll">
         <a href="#service" class="btn btn-circle">
@@ -120,7 +120,7 @@
     </div>
     <div class="container">
         <div class="row">
-            @foreach($users as $user)
+            @foreach($authors as $user)
             <div class="col-xs-12 col-sm-3 col-md-3">
                 <div class="wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="team boxed-grey">

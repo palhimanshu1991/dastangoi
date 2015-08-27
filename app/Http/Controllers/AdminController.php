@@ -131,5 +131,9 @@ class AdminController extends Controller
         return view('admin.press',compact('presses'));
     }
 
+    public function getBlog(){
+        $stories = DB::table('stories')->get();
+        return view('admin.blog',compact('stories'));
+    }
 
 }

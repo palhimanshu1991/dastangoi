@@ -66,11 +66,7 @@ class StoryController extends Controller
             'story_body'  => $request->input('body')
         ]);
 
-        if($table){
-            return 'true';
-        } else {
-            return 'false';
-        }
+        return redirect('/blog');
 
     }
 
@@ -80,9 +76,12 @@ class StoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function getShow($id)
     {
         //
+        $story = DB::table('stories')->where('story_id',$id)->first();
+        return view('story.show',compact('story'));
+
     }
 
     /**
@@ -114,8 +113,10 @@ class StoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function getDelete($id)
     {
         //
+        DB::table('stories')->where('story_id',$id)->delete();
+        return redirect()->back();
     }
 }

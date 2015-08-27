@@ -59,10 +59,11 @@
                 <li><a href="{{Config::get('app.url')}}event">Events</a></li>
                 <li><a href="{{Config::get('app.url')}}gallery">Gallery</a></li>
                 <li><a href="{{Config::get('app.url')}}authors">Profiles</a></li>
-                <li><a href="{{Config::get('app.url')}}about">About</a></li>
+                <li><a href="{{Config::get('app.url')}}blog">Blog</a></li>
+                <li><a href="{{Config::get('app.url')}}about">About</a></li>                
                 <!-- <li><a href="#gallery">Photos</a></li> -->
                 <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>
-                <li><a href="http://dastangoi.blogspot.in/">Blog</a></li>
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Press <b class="caret"></b></a>
                     <ul class="dropdown-menu">
