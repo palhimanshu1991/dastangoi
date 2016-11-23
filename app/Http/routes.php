@@ -12,10 +12,14 @@
 */
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth'     => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
 
+
+Route::get('/home', function () {
+    return redirect()->to('/admin');
+});
 
 Route::get('/', 'WelcomeController@index');
 Route::get('about', 'WelcomeController@about');
