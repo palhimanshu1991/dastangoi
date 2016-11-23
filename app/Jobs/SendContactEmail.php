@@ -22,8 +22,8 @@ class SendContactEmail
 
         $data = $this->data;
 
-        Mail::raw('Text to e-mail', function ($message) use ($data) {
-            $message->from($data['email'], $data['from']);
+        Mail::raw($data['message'], function ($message) use ($data) {
+            $message->from($data['email'], $data['name']);
             $message->to('himanshu@instaveritas.com');
         });
 
