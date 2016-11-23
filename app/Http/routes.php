@@ -20,6 +20,7 @@ Route::controllers([
 Route::get('/', 'WelcomeController@index');
 Route::get('about', 'WelcomeController@about');
 Route::get('contact', 'WelcomeController@contact');
+Route::post('contact', 'WelcomeController@postContact');
 
 Route::controller('user', 'AuthorController');
 Route::controller('users', 'AuthorController');
