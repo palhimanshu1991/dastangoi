@@ -16,7 +16,7 @@ class AddStorTable extends Migration
             $table->increments('story_id');
             $table->string('story_title');
             $table->text('story_body');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

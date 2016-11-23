@@ -22,7 +22,7 @@ class CreateAuthorTable extends Migration
             $table->string('twitter');
             $table->string('google');
             $table->string('website');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

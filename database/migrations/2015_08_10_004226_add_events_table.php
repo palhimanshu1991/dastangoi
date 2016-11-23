@@ -19,7 +19,7 @@ class AddEventsTable extends Migration
              $table->text('event_description');
              $table->string('event_place');
              $table->string('event_date');
-             $table->timestamps();
+             $table->nullableTimestamps();
         });
     }
 

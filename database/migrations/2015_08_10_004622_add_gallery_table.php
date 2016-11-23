@@ -17,7 +17,7 @@ class AddGalleryTable extends Migration
              $table->increments('gallery_id');
              $table->string('gallery_name');
              $table->string('gallery_url');
-             $table->timestamps();             
+             $table->nullableTimestamps();             
         });
     }
 

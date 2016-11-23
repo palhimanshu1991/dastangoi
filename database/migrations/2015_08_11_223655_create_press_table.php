@@ -18,7 +18,8 @@ class CreatePressTable extends Migration
             $table->string('press_image');
             $table->text('press_title');
             $table->text('press_description');
-            $table->timestamps();
+            $table->string('press_date');
+            $table->nullableTimestamps();
         });
     }
 
