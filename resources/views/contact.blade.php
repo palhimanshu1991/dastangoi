@@ -25,6 +25,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="boxed-grey">
                         <form action="{{ url('contact') }}" method="POST" id="contact-form">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
