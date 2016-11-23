@@ -24,7 +24,7 @@ class SendContactEmail
 
         Mail::raw($data['message'], function ($message) use ($data) {
             $message->from($data['email'], $data['name']);
-            $message->to('himanshu@instaveritas.com');
+            $message->to(env('MAIL_TO', 'ankitchadha@gmail.com'));
         });
 
     }
