@@ -15,15 +15,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{Config::get('app.url')}}css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
-    <link href="{{Config::get('app.url')}}font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="{{Config::get('app.url')}}css/animate.css" rel="stylesheet" />
+    <link href="{{ url('') }}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('') }}/css/animate.css" rel="stylesheet" />
 
     <!-- Dastangoi theme CSS -->
-    <link href="{{Config::get('app.url')}}css/style.css" rel="stylesheet">
-    <link href="{{Config::get('app.url')}}color/default.css" rel="stylesheet">
+    <link href="{{ url('') }}/css/style.css" rel="stylesheet">
+    <link href="{{ url('') }}/color/default.css" rel="stylesheet">
 
     <!--[if lte IE 9]>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.js"></script>
@@ -55,20 +55,20 @@
  -->                <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{Config::get('app.url')}}">Home</a></li>
-                <li><a href="{{Config::get('app.url')}}event">Events</a></li>
-                <li><a href="{{Config::get('app.url')}}gallery">Gallery</a></li>
-                <li><a href="{{Config::get('app.url')}}authors">Profiles</a></li>
-                <li><a href="{{Config::get('app.url')}}blog">Blog</a></li>
-                <li><a href="{{Config::get('app.url')}}about">About</a></li>                
+                <li><a href="{{ url('') }}/">Home</a></li>
+                <li><a href="{{ url('') }}/event">Events</a></li>
+                <li><a href="{{ url('') }}/gallery">Gallery</a></li>
+                <li><a href="{{ url('') }}/authors">Profiles</a></li>
+                <li><a href="{{ url('') }}/blog">Blog</a></li>
+                <li><a href="{{ url('') }}/about">About</a></li>
                 <!-- <li><a href="#gallery">Photos</a></li> -->
-                <li><a href="{{Config::get('app.url')}}contact">Contact</a></li>
+                <li><a href="{{ url('') }}/contact">Contact</a></li>
                 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Press <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{Config::get('app.url')}}press">Past Coverage</a></li>
-                        <li><a href="{{Config::get('app.url')}}press/kit">PR Kit</a></li>
+                        <li><a href="{{ url('') }}/press">Past Coverage</a></li>
+                        <li><a href="{{ url('') }}/press/kit">PR Kit</a></li>
                     </ul>
                 </li>
             </ul>
@@ -98,14 +98,14 @@
      </div>
     </footer>
     <!-- Core JavaScript Files -->
-    <script src="{{Config::get('app.url')}}js/jquery.min.js"></script>
-    <script src="{{Config::get('app.url')}}js/bootstrap.min.js"></script>
-    <script src="{{Config::get('app.url')}}js/jquery.easing.min.js"></script>
-    <script src="{{Config::get('app.url')}}js/jquery.scrollTo.js"></script>
-    <script src="{{Config::get('app.url')}}js/wow.min.js"></script>]
+    <script src="{{ url('') }}/js/jquery.min.js"></script>
+    <script src="{{ url('') }}/js/bootstrap.min.js"></script>
+    <script src="{{ url('') }}/js/jquery.easing.min.js"></script>
+    <script src="{{ url('') }}/js/jquery.scrollTo.js"></script>
+    <script src="{{ url('') }}/js/wow.min.js"></script>]
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{Config::get('app.url')}}js/custom.js"></script>
+    <script src="{{ url('') }}/js/custom.js"></script>
 
     <!-- OctoberCMS Ajax Framework and extras -->
     <script src="/laracms/modules/system/assets/js/framework.js"></script>
