@@ -1,42 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-
-use App\Event;
-use App\User;
-use App\Gallery;
-use App\Author;
-
-use DB;
-
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Story;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
-class AdminController extends Controller
+class StoriesController extends Controller
 {
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}    
-    
-    
+
+    /**
+     * StoriesController constructor.
+     */
+    public function __construct()
+    {
+        //
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function getIndex()
+    public function index()
     {
-        //
-        return view('admin.index');
+        $stories = Story::paginate();
+
+        return view('admin.stories.index', compact('stories'));
     }
 
     /**
@@ -46,47 +37,53 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.stories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
     {
-        //
+
+        Story::create([
+            'story_title' => $request->input('title'),
+            'story_body'  => $request->input('body')
+        ]);
+
+        return redirect()->route('admin.stories.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  integer $id
      * @return Response
      */
     public function show($id)
     {
-        //
+        return view('admin.stories.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  integer $id
      * @return Response
      */
     public function edit($id)
     {
-        //
+        return view('admin.stories.edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  integer $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -97,22 +94,11 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  integer $id
      * @return Response
      */
     public function destroy($id)
     {
         //
     }
-
-
-    public function getUsers(){
-        $users = User::all();
-        return view('admin.users',compact('users'));
-    }
-    public function getBlog(){
-        $stories = DB::table('stories')->get();
-        return view('admin.blog',compact('stories'));
-    }
-
 }

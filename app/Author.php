@@ -16,5 +16,14 @@ class Author extends Model
 
     protected $primaryKey = 'id';
 
-    public $timestamps = true;      
+    public $timestamps = true;
+
+
+    /**
+     * @return mixed
+     */
+    public function getIdAttribute()
+    {
+        return $this->author_id;
+    }
 }

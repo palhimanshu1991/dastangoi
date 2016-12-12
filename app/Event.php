@@ -7,29 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     //
+    public $timestamps = true;
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'events';
-
-    protected $primaryKey = 'event_id'; 
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    // protected $fillable = ['name', 'email', 'password'];
+    protected $primaryKey = 'event_id';
 
     /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
+     * @return mixed
      */
-    //protected $hidden = ['password', 'remember_token'];
-
-    public $timestamps = true;  
+    public function getIdAttribute()
+    {
+        return $this->event_id;
+    }
 
 }

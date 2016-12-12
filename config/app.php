@@ -146,7 +146,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider::class
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -196,7 +196,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Carbon'    => 'Carbon\Carbon',
-        'PushNotification' => Davibennun\LaravelPushNotification\Facades\PushNotification::class
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

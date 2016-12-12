@@ -21,6 +21,18 @@ Route::get('/home', function () {
     return redirect()->to('/admin');
 });
 
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
+
+    Route::resource('authors', 'AuthorsController');
+    Route::resource('blog', 'BlogController');
+    Route::resource('events', 'EventsController');
+    Route::resource('gallery', 'GalleryController');
+    Route::resource('press', 'PressController');
+    Route::resource('stories', 'StoriesController');
+
+});
+
 Route::get('/', 'WelcomeController@index');
 Route::get('about', 'WelcomeController@about');
 Route::get('contact', 'WelcomeController@contact');
