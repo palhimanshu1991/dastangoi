@@ -21,7 +21,7 @@ class NullablesInAllTables extends Migration
             $table->string('website')->nullable()->default(null)->change();
         });
 
-        Schema::table('eventseven', function (Blueprint $table) {
+        Schema::table('events', function (Blueprint $table) {
             $table->text('event_description')->nullable()->default(null)->change();
             $table->string('event_name')->nullable()->default(null)->change();
             $table->string('event_place')->nullable()->default(null)->change();
