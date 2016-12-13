@@ -53,7 +53,7 @@ class GalleryController extends Controller
         $request->file('photo')->move($destination, $filename);
 
         DB::table('gallery')->insert([
-            'gallery_name' => $request->description,
+            'gallery_name' => $request->description ?: '',
             'gallery_url'  => $filename,
             'created_at'   => Carbon::now(),
             'updated_at'   => Carbon::now()
