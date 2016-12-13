@@ -39,9 +39,9 @@
                     <div class="inner">
                         <div class="avatar" style="max-width:200px;">
                         @if(empty($user->image))    
-                            <img src="{{Config::get('app.url')}}images/default.jpg" alt="" class="img-responsive img-circle" />
+                            <img src="{{ url('') }}/images/default.jpg" alt="" class="img-responsive img-circle" />
                         @else
-                            <img src="{{Config::get('app.url')}}images/team/1.jpg" alt="" class="img-responsive img-circle" />
+                            <img src="{{ url('') }}/images/team/1.jpg" alt="" class="img-responsive img-circle" />
                         @endif
                         </div>                        
                     </div>
@@ -53,7 +53,7 @@
         <br/>
         <div class="row">
             <div class="col-lg-2 col-lg-offset-5">
-            <h3><a href="{{Config::get('app.url')}}users">See All Dastangoers</a></h3>
+            <h3><a href="{{ url('') }}/users">See All Dastangoers</a></h3>
             </div>
         </div>     
     </div>
@@ -88,7 +88,7 @@
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
         <div class="boxed-grey">
-            <form action="{{Config::get('app.url')}}" id="contact-form" action="POST">
+            <form action="{{ url('') }}/" id="contact-form" action="POST">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">

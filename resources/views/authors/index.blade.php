@@ -3,16 +3,16 @@
 @section('content')
 
 
-<!-- Section: services -->
+        <!-- Section: services -->
 <section id="profiles" class="home-section">
     <div class="heading-about text-center">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="wow bounceInDown" data-wow-delay="0.4s">
-                    <div class="section-heading">
-                    <h2>Our Dastangoers</h2>
-                    </div>
+                        <div class="section-heading">
+                            <h2>Our Dastangoers</h2>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -20,50 +20,45 @@
                 <div class="col-lg-2 col-lg-offset-5">
                     <hr class="marginbot-40">
                 </div>
-            </div>            
+            </div>
         </div>
     </div>
-    <div class="container">    
+    <div class="container">
         @foreach($users as $user)
             <div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-2">
-                    @if(empty($user->image))    
-                        <img src="{{Config::get('app.url')}}images/default.jpg" alt="" class="img-responsive img-circle" />
-                    @else
-                        <img src="{{Config::get('app.storage')}}/authors/{{$user->id}}/{{$user->image}}" alt="" class="img-responsive img-circle" />
-                    @endif            
+                    <img src="{{ $user->photo_url }}" class="img-responsive img-circle"/>
                 </div>
                 <div class="col-xs-9 col-sm-9 col-md-10">
-                    <h1 style="margin-bottom:5px;">{{$user->name}}</h1>    
+                    <h1 style="margin-bottom:5px;">{{$user->name}}</h1>
                     <p>{{$user->bio}}</p>
                     <p style="font-size:20px;">
                         @if($user->facebook)
-                        <a alt="Facebook link" href="{{$user->facebook}}"><i class="fa fa-facebook-square"></i></a>
+                            <a alt="Facebook link" href="{{$user->facebook}}"><i class="fa fa-facebook-square"></i></a>
                         @endif
                         @if($user->twitter)
-                        <a alt="Twitter link" href="{{$user->twitter}}"><i class="fa fa-twitter-square"></i></a>
+                            <a alt="Twitter link" href="{{$user->twitter}}"><i class="fa fa-twitter-square"></i></a>
                         @endif
                         @if($user->google)
-                        <a alt="Google link" href="{{$user->google}}"><i class="fa fa-google-plus-square"></i></a>
+                            <a alt="Google link" href="{{$user->google}}"><i class="fa fa-google-plus-square"></i></a>
                         @endif
                         @if($user->website)
-                        <a alt="Website link" href="{{$user->website}}"><i class="fa fa-external-link-square"></i></a>
+                            <a alt="Website link" href="{{$user->website}}"><i
+                                        class="fa fa-external-link-square"></i></a>
                         @endif
                     </p>
-                </div>     
-            </div> 
-            <br/><br/><br/>
-        @endforeach
-<!--         <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-            <h3><a href="{{Config::get('app.url')}}users">See All Dastangoers</a></h3>
+                </div>
             </div>
-        </div>   -->   
+            <br/><br/><br/>
+            @endforeach
+                    <!--         <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+            <h3><a href="{{ url('') }}/users">See All Dastangoers</a></h3>
+            </div>
+        </div>   -->
     </div>
 </section>
 <!-- /Section: services -->
-
-
 
 
 <!-- Section: contact -->
@@ -91,7 +86,7 @@
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
         <div class="boxed-grey">
-            <form action="{{Config::get('app.url')}}" id="contact-form" action="POST">
+            <form action="{{ url('') }}/" id="contact-form" action="POST">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -163,7 +158,7 @@
     </div> -->
 </div>
 
-    </div>
+</div>
 </section>
 
 @endsection

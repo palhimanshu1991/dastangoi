@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use DB;
-use Storage;
-use Config;
-use Carbon;
-use File;
-
+use App\Gallery;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Carbon;
+use Config;
+use DB;
+use File;
+use Illuminate\Http\Request;
+use Storage;
 
 class GalleryController extends Controller
 {
@@ -23,9 +21,9 @@ class GalleryController extends Controller
     public function getIndex()
     {
         //
-        $photos = DB::table('gallery')->get();
+        $photos = Gallery::all();
 
-        return view('gallery.index',compact('photos'));
+        return view('gallery.index', compact('photos'));
     }
 
     /**
@@ -42,23 +40,23 @@ class GalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function postCreate(Request $request)
     {
         //
 
-        $filename = $request->file('photo')->getClientOriginalName().'_'.time();
-        $destination = public_path().'/uploads/';
+        $filename    = str_random() . '.' . $request->file('photo')->getClientOriginalExtension();
+        $destination = public_path() . '/uploads/';
 
-        $request->file('photo')->move($destination,$filename);
+        $request->file('photo')->move($destination, $filename);
 
         DB::table('gallery')->insert([
-            'gallery_description'  =>  $request->description,
-            'gallery_url'   =>  $filename,
-            'created_at'    => Carbon::now(),
-            'updated_at'    => Carbon::now()
+            'gallery_name' => $request->description ?: '',
+            'gallery_url'  => $filename,
+            'created_at'   => Carbon::now(),
+            'updated_at'   => Carbon::now()
         ]);
 
         return redirect('/admin/gallery');
@@ -68,20 +66,21 @@ class GalleryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function getShow($id)
     {
         //
-        $photo = DB::table('gallery')->where('gallery_id',$id)->first();
-        return view('gallery.show',compact('photo'));
+        $photo = Gallery::find($id);
+
+        return view('gallery.show', compact('photo'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -92,8 +91,8 @@ class GalleryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int     $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -104,16 +103,17 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function getDelete($id)
     {
         //
-        $gallery = DB::table('gallery')->where('gallery_id',$id)->first();
-        if($gallery){
-            DB::table('gallery')->where('gallery_id',$id)->delete();
-            File::delete(Config::get('app.storage').'/'.$gallery->gallery_url);
+        $gallery = DB::table('gallery')->where('gallery_id', $id)->first();
+        if ($gallery) {
+            DB::table('gallery')->where('gallery_id', $id)->delete();
+            File::delete(Config::get('app.storage') . '/' . $gallery->gallery_url);
+
             return redirect()->back();
         } else {
             return 'Some error occured';

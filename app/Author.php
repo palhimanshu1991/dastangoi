@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     //
+    public $timestamps = true;
     /**
      * The database table used by the model.
      *
@@ -16,8 +17,17 @@ class Author extends Model
 
     protected $primaryKey = 'id';
 
-    public $timestamps = true;
+    /**
+     * @return mixed
+     */
+    public function getPhotoUrlAttribute()
+    {
+        if ($this->image == null || empty($this->image) || $this->image == '') {
+            return asset('/images/default.jpg');
+        }
 
+        return asset('uploads/authors/' . $this->id . '/' . $this->image);
+    }
 
     /**
      * @return mixed

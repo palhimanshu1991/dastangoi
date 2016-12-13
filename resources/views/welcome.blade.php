@@ -90,7 +90,7 @@
          </div>   
          <br/>
         <div class="row">
-            <a class="btn btn-main" href="{{Config::get('app.url')}}event">See All Events</a>
+            <a class="btn btn-main" href="{{ url('') }}/event">See All Events</a>
         </div>    
     </div>
 </section>
@@ -127,9 +127,9 @@
                     <div class="inner">
                         <div class="avatar">
                         @if(empty($user->image))    
-                            <img src="{{Config::get('app.url')}}images/default.jpg" alt="" class="img-responsive img-circle" />
+                            <img src="{{ url('') }}/images/default.jpg" alt="" class="img-responsive img-circle" />
                         @else
-                            <img src="{{Config::get('app.url')}}images/team/1.jpg" alt="" class="img-responsive img-circle" />
+                            <img src="{{ url('') }}/images/team/1.jpg" alt="" class="img-responsive img-circle" />
                         @endif
                         </div>
                         <h1>{{$user->name}}</h1>
@@ -139,7 +139,7 @@
             </div>        
             @endforeach
             <br/><br/>
-            <a class="btn btn-main" href="{{Config::get('app.url')}}authors">See All Dastangoers</a></h3>
+            <a class="btn btn-main" href="{{ url('') }}/authors">See All Dastangoers</a></h3>
         </div>
     </div>
 </section>
@@ -182,7 +182,7 @@
          </div>   
          <br/>
         <div class="row">
-            <a class="btn btn-main" href="{{Config::get('app.url')}}press">See All Coverage</a>
+            <a class="btn btn-main" href="{{ url('') }}/press">See All Coverage</a>
         </div>    
     </div>
 </section>
@@ -215,7 +215,7 @@
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
         <div class="boxed-grey">
-            <form action="{{Config::get('app.url')}}" id="contact-form" action="POST">
+            <form action="{{ url('') }}/" id="contact-form" action="POST">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
