@@ -5,7 +5,7 @@
    <div class="row">
       <div class="col-md-12">
 
-        <a class="btn btn-default btn-primary" href="{{Config::get('app.url')}}/press/create">Create Press Coverage</a>
+        <a class="btn btn-default btn-primary" href="{{ url('') }}//press/create">Create Press Coverage</a>
         <br/><br/>
 
 <div class="bs-example" >
@@ -32,7 +32,7 @@
             <td>{{$press->press_date}}</td>
             <td>{{$press->press_link}}</td>
             <td>{{$press->press_description}}</td>
-            <td><a href="{{Config::get('app.url')}}press/delete/{{$press->press_id}}">Delete</a></td>
+            <td><a href="{{ url('') }}/press/delete/{{$press->press_id}}">Delete</a></td>
           </tr>
         @endforeach
         </tbody>

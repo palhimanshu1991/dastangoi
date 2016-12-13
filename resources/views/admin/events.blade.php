@@ -5,7 +5,7 @@
    <div class="row">
       <div class="col-md-12">
 
-      	<a class="btn btn-default" href="{{Config::get('app.url')}}/event/create">Create Event</a>
+      	<a class="btn btn-default" href="{{ url('') }}//event/create">Create Event</a>
       	<br/><br/>
 
 <div class="bs-example" >
@@ -31,8 +31,8 @@
             <td>{{$event->event_name}}</td>
             <td>{{$event->event_place}}</td>
             <td>{{$event->event_date}}</td>
-            <td><a href="{{Config::get('app.url')}}event/edit/{{$event->event_id}}">Edit</a></td>
-            <td><a href="{{Config::get('app.url')}}event/delete/{{$event->event_id}}">Delete</a></td>
+            <td><a href="{{ url('') }}/event/edit/{{$event->event_id}}">Edit</a></td>
+            <td><a href="{{ url('') }}/event/delete/{{$event->event_id}}">Delete</a></td>
           </tr>
         @endforeach
         </tbody>

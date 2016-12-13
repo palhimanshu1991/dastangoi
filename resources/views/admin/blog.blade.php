@@ -5,7 +5,7 @@
    <div class="row">
       <div class="col-md-12">
 
-      	<a class="btn btn-default btn-success" href="{{Config::get('app.url')}}blog/create">New Blog Post</a>
+      	<a class="btn btn-default btn-success" href="{{ url('') }}/blog/create">New Blog Post</a>
       	<br/><br/>
 
 <div class="bs-example" >
@@ -29,8 +29,8 @@
             <th scope="row">{{$story->story_id}}</th>
             <td>{{$story->story_title}}</td>
             <td>{{$story->created_at}}</td>
-            <td><a href="{{Config::get('app.url')}}blog/edit/{{$story->story_id}}">Edit</a></td>
-            <td><a href="{{Config::get('app.url')}}blog/delete/{{$story->story_id}}">Delete</a></td>
+            <td><a href="{{ url('') }}/blog/edit/{{$story->story_id}}">Edit</a></td>
+            <td><a href="{{ url('') }}/blog/delete/{{$story->story_id}}">Delete</a></td>
           </tr>
         @endforeach
         </tbody>

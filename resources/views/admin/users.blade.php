@@ -7,7 +7,7 @@
    <div class="row">
       <div class="col-md-12">        
 
-      	<a class="btn btn-default" href="{{Config::get('app.url')}}user/create">Create New Proile</a>
+      	<a class="btn btn-default" href="{{ url('') }}/user/create">Create New Proile</a>
       	<br/><br/>
 
 <div class="bs-example" >
@@ -34,7 +34,7 @@
           <th scope="row">{{$user->email}}</th>          
             <th scope="row">{{$user->created_at}}</th>
 
-            <td><a href="{{Config::get('app.url')}}user/delete/{{$user->id}}">Delete</a></td>
+            <td><a href="{{ url('') }}/user/delete/{{$user->id}}">Delete</a></td>
           </tr>
         @endforeach
         </tbody>

@@ -36,7 +36,7 @@
          <br/>
 <!--         <div class="row">
             <div class="col-lg-2 col-lg-offset-5">
-            <h3><a href="{{Config::get('app.url')}}event">See All Events</a></h3>
+            <h3><a href="{{ url('') }}/event">See All Events</a></h3>
             </div>
         </div>  -->   
     </div>

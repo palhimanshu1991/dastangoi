@@ -122,7 +122,7 @@ class AdminController extends Controller
     }    
 
     public function getGallery(){
-        $photos = DB::table('gallery')->get();
+        $photos = Gallery::paginate();
         return view('admin.gallery',compact('photos'));
     }
 

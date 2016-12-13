@@ -8,11 +8,11 @@
 
         <!-- <h4>Add New Story</h4> -->
 
-        <!-- <form action="{{Config::get('app.url')}}story/create" class="bs-example bs-example-form" method="POST"> -->
+        <!-- <form action="{{ url('') }}/story/create" class="bs-example bs-example-form" method="POST"> -->
         
         <h1>New Blog Post</h1>
 
-        <form class="bs-example bs-example-form" method="POST" action="{{Config::get('app.url')}}blog/create">
+        <form class="bs-example bs-example-form" method="POST" action="{{ url('') }}/blog/create">
             <input type="hidden" name="_method" value="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">          
             

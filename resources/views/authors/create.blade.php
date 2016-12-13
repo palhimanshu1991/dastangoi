@@ -8,7 +8,7 @@
 
         <h4>Create New Author</h4>
 
-        <form action="{{Config::get('app.url')}}authors/create" enctype="multipart/form-data" class="bs-example bs-example-form" method="POST">
+        <form action="{{ url('') }}/authors/create" enctype="multipart/form-data" class="bs-example bs-example-form" method="POST">
           <input type="hidden" name="_method" value="POST">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">          
 

@@ -8,7 +8,7 @@
 
         <h4>Create A New Event</h4>
 
-        <form action="{{Config::get('app.url')}}event/edit/{{$event->event_id}}" class="bs-example bs-example-form" method="POST">
+        <form action="{{ url('') }}/event/edit/{{$event->event_id}}" class="bs-example bs-example-form" method="POST">
           <input type="hidden" name="_method" value="POST">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">          
 
