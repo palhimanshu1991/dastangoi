@@ -27,8 +27,7 @@
         @foreach($users as $user)
             <div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-2">
-                    <img src="{{ $user->photo_url }}}" alt=""
-                         class="img-responsive img-circle"/>
+                    <img src="{{ $user->photo_url }}" class="img-responsive img-circle"/>
                 </div>
                 <div class="col-xs-9 col-sm-9 col-md-10">
                     <h1 style="margin-bottom:5px;">{{$user->name}}</h1>
